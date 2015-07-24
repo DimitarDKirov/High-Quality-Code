@@ -16,7 +16,7 @@ namespace Exam1CalculationProblem
             string inputData = Console.ReadLine();
             int sumInDecimal = SumOfWordsSums(inputData);
             string codedText = CodeNumbertoText(sumInDecimal, SystemBase);
-            Console.WriteLine(codedText);
+            Console.WriteLine("{0} = {1}", codedText, sumInDecimal);
         }
 
         private static int SumOfWordsSums(string text)
@@ -47,19 +47,20 @@ namespace Exam1CalculationProblem
             return lettersSum;
         }
 
-        private static string CodeNumbertoText(int sumInDecimal, int SystemBase)
+        private static string CodeNumbertoText(int sumInDecimal, int systemBase)
         {
             char[] codedNumber = new char[NumberOfLetters];
             int letterPosition = 0;
             int divideRemainder = sumInDecimal;
             do
             {
-                int letterNumber = divideRemainder % SystemBase;
+                int letterNumber = divideRemainder % systemBase;
                 char letter = Convert.ToChar(letterNumber + 'a');
                 codedNumber[letterPosition] = letter;
-                divideRemainder /= SystemBase;
+                divideRemainder /= systemBase;
                 letterPosition += 1;
-            } while (divideRemainder > 0);
+            }
+            while (divideRemainder > 0);
 
             Array.Reverse(codedNumber);
             string result = new string(codedNumber, codedNumber.Length - letterPosition, letterPosition);

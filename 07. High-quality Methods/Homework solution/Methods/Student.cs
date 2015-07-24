@@ -11,12 +11,12 @@ namespace Methods
 
         public bool IsOlderThan(Student other)
         {
-            DateTime firstDate = this.getBirthDate();
-            DateTime secondDate = other.getBirthDate();
+            DateTime firstDate = this.GetBirthDate();
+            DateTime secondDate = other.GetBirthDate();
             return firstDate > secondDate;
         }
 
-        private DateTime getBirthDate()
+        private DateTime GetBirthDate()
         {
             string birthSubpart = this.OtherInfo.Substring(this.OtherInfo.Length - BirthPartStart);
             DateTime birthDate = DateTime.Parse(birthSubpart);
