@@ -175,3 +175,6 @@ UpgradeLog*.htm
 
 # Microsoft Fakes
 FakesAssemblies/
+*.sln
+10. Code Tuning and Optimization/HWCodeTunning/SimpleMaths/Properties/AssemblyInfo.cs
+03. Naming Identifiers/Homework solution/class_123inCS/Properties/AssemblyInfo.cs
