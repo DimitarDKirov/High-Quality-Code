@@ -1,20 +1,34 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Diagnostics;
 
 namespace myUnitTest
 {
     [TestClass]
     public class UnitTest1
     {
+        [TestCleanup]
+        public void TestClaenup()
+        { 
+            Debug.WriteLine("Test claenup"); 
+        }
+        [ClassInitialize]
+        public static void ClassInit(TestContext context)
+        { Debug.WriteLine("ClassInitialize"); }
+        [ClassCleanup]
+        public static void ClassCleanup()
+        { Debug.WriteLine("class cleanup"); }
         int a = 0;
         [TestInitialize]
         public void Before()
         {
+            Debug.WriteLine("test init");
             a++;
         }
         [TestMethod]
         public void TestMethod1()
         {
+            Debug.WriteLine("test method");
             Assert.AreEqual(5, 5);
         }
         [TestMethod]
