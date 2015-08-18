@@ -72,7 +72,7 @@ namespace MobilePhones
 
         public ushort CallDuration { get; set; }
 
-        public string DisplayInfo()
+        public override string ToString()
         {
             return string.Format("Call date: {0} time: {1} number: {2} duration {3}:{4:00} min:sec", this.CallDate, this.CallTime, this.PhoneNumber, this.CallDuration / 60, this.CallDuration % 60);
         }

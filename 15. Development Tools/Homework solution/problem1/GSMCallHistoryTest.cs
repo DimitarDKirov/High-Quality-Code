@@ -31,7 +31,7 @@ namespace MobilePhones
                 string randomNumber = string.Concat("0", randomNum);
                 Call tempCall = new Call(DateTime.Now.Add(timeOffset), randomNumber, (ushort)rand.Next(3600));
                 this.testPhone.AddCall(tempCall);
-                Console.WriteLine(tempCall.DisplayInfo());  //показва информация на новия случаен разовор
+                Console.WriteLine(tempCall.ToString());  //показва информация на новия случаен разовор
                 }
             //изчислява общата цена на всички раговори
             Console.WriteLine("Total price of all calls at {0:c}/min: {1:c}", priceMinute, this.testPhone.CalcCallsPrice(priceMinute));
