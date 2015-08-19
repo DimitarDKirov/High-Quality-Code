@@ -102,7 +102,7 @@ namespace MobilePhones
 
         public override string ToString()
         {
-            string phoneData = string.Format("{1} {0}\tPrice: {2:c}\tOwner: {3}\nBattery model: {4}; Battery talk time: {5}; Battery type: {6}\nDisplay size: {7}", this.model, this.manufacturer, this.price, this.PhoneOwner, BatteryData.Model, BatteryData.HoursTalk, BatteryData.TypeOfBattery, this.DisplaySize);
+            string phoneData = string.Format("{1} {0}\tPrice: {2:c}\tOwner: {3}\nBattery model: {4}; Battery talk time: {5}; Battery type: {6}\nDisplay size: {7}", this.model, this.manufacturer, this.price, this.PhoneOwner, BatteryData.Model, BatteryData.Capacity, BatteryData.TypeOfBattery, this.DisplaySize);
             return phoneData;
         }
        

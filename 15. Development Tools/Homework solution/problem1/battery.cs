@@ -5,15 +5,15 @@ namespace MobilePhones
     public class Battery
     {
         private int hoursIdle;
-        private int hoursTalk;
+        private int capacity;
 
         public Battery() : this(null, 0, 0, 0) { }
 
-        public Battery(string model, int hoursIdleTime, int hoursTalkTime, BatteryType batType)
+        public Battery(string model, int hoursIdleTime, int capacity, BatteryType batType)
         {
             this.Model = model;
             this.HoursIdle = hoursIdleTime;
-            this.HoursTalk = hoursTalkTime;
+            this.Capacity = capacity;
             this.TypeOfBattery = batType;
         }
 
@@ -36,23 +36,28 @@ namespace MobilePhones
             }
         }
 
-        public int HoursTalk
+        public int Capacity
         {
             get
             {
-                return this.hoursTalk;
+                return this.capacity;
             }
             set
             {
                 if (value < 0)
                 {
-                    throw new ArgumentOutOfRangeException("Talk time must be positive number");
+                    throw new ArgumentOutOfRangeException("Capacity must be positive number");
                 }
 
-                this.hoursTalk = value;
+                this.capacity = value;
             }
         }
 
         public BatteryType TypeOfBattery { get; set; }
+
+        public override string ToString()
+        {
+            return String.Format("Battery {0} {1} {2}mAh {3}h", this.Model, this.TypeOfBattery,this.Capacity,this.HoursIdle);
+        }
     }
 }
