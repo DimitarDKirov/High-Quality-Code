@@ -3,7 +3,7 @@
 
 namespace MobilePhones
 {
-    class Call
+    public class Call
     {
         private DateTime callDateTime;
 
@@ -61,7 +61,7 @@ namespace MobilePhones
 
                 catch (Exception ex)
                 {
-                    throw new ArgumentException("Time format is not correct");
+                    throw new FormatException("Time format is not correct");
                 }
 
                 callDateTime = callDateTime.Add(time);
@@ -74,7 +74,7 @@ namespace MobilePhones
 
         public override string ToString()
         {
-            return string.Format("Call date: {0} time: {1} number: {2} duration {3}:{4:00} min:sec", this.CallDate, this.CallTime, this.PhoneNumber, this.CallDuration / 60, this.CallDuration % 60);
+            return string.Format("Call {0} {1} to: {2} duration {3}:{4:00}", this.CallDate, this.CallTime, this.PhoneNumber, this.CallDuration / 60, this.CallDuration % 60);
         }
     }
 }

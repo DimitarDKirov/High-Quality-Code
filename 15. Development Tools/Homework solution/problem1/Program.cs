@@ -41,8 +41,6 @@ namespace MobilePhones
             GSMCallHistoryTest testCalls = new GSMCallHistoryTest();
             testCalls.TestCallHistory();
 
-
-            
             }
         }
     }
