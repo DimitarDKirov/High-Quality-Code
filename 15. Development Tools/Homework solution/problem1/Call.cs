@@ -5,7 +5,7 @@ namespace MobilePhones
 {
     class Call
     {
-        private DateTime callDateTime; 
+        private DateTime callDateTime;
 
         public Call()
             : this(DateTime.MinValue, string.Empty, 0)

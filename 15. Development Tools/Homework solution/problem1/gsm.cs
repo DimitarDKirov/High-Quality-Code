@@ -6,26 +6,24 @@ namespace MobilePhones
 {
     class GSM
     {
-        private static GSM iphone4S;    //problem 6 - статично поле
-
         private string model;
         private string manufacturer;
         private float price;
-        private Display displayData;    //поле за класа на дисплея
-        private List<Call> callHistory; //problem 9 - архив (списък от) разговори
+        private float displaySize;
+        private List<Call> callHistory;
 
-        public GSM(string model, string manufacturer, float price, string owner, Battery bat, Display display)       //конструктор с всички данни
+        public GSM(string model, string manufacturer, float price, string owner, Battery battery, float displaySize)       //конструктор с всички данни
         {
             this.Model = model;
             this.Manufacturer = manufacturer;
             this.Price = price;
             this.PhoneOwner = owner;
-            this.BatteryData = bat;
-            this.displayData = display;
+            this.BatteryData = battery;
+            this.DisplaySize = displaySize;
             this.callHistory = new List<Call>();
         }
 
-        public GSM(string model, string manufacturer) : this(model, manufacturer, 0.0f, null, null, null) { }
+        public GSM(string model, string manufacturer) : this(model, manufacturer, 0.0f, null, null, 0.0f) { }
 
         public string Model
         {
@@ -78,32 +76,38 @@ namespace MobilePhones
             }
         }
 
+
+
+        public float DisplaySize
+        {
+            get
+            {
+                return this.displaySize;
+            }
+            set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentException("Display size can not be negative number");
+                }
+
+                displaySize = value;
+            }
+        }
+
+
         public string PhoneOwner { get; set; }
 
         public Battery BatteryData { get; set; }
 
-        public static GSM IPhone4S
-        {
-            get { return GSM.iphone4S; }
-            set { GSM.iphone4S = value; }
-        }
-
         public override string ToString()
         {
-            string phoneData = string.Format("{1} {0}\tPrice: {2:c}\tOwner: {3}\nBattery model: {4}; Battery talk time: {5}; Battery type: {6}\n", this.model, this.manufacturer, this.price, this.PhoneOwner, BatteryData.Model, BatteryData.HoursTalk, BatteryData.TypeOfBattery);
-            if (this.displayData == null)
-                return phoneData;
-            else
-            {
-                string display = string.Format("Display size: {0}\" Display colors: {1}", this.displayData.Size, this.displayData.NumberOfColors);
-                return phoneData + display + '\n';
-            }
+            string phoneData = string.Format("{1} {0}\tPrice: {2:c}\tOwner: {3}\nBattery model: {4}; Battery talk time: {5}; Battery type: {6}\nDisplay size: {7}", this.model, this.manufacturer, this.price, this.PhoneOwner, BatteryData.Model, BatteryData.HoursTalk, BatteryData.TypeOfBattery, this.DisplaySize);
+            return phoneData;
         }
-        //problem 10 - добавяне и изтриване на разговор, изчистване на всички разговори
+       
         public void AddCall(Call call)
         { this.callHistory.Add(call); }
-        public void RemoveCall(Call call)
-        { this.callHistory.Remove(call); }
 
         public void ClearCallHistory()
         { this.callHistory.Clear(); }

@@ -36,7 +36,6 @@ namespace MobilePhones
             //изчислява общата цена на всички раговори
             Console.WriteLine("Total price of all calls at {0:c}/min: {1:c}", priceMinute, this.testPhone.CalcCallsPrice(priceMinute));
             //премахва най-длъгия разговор
-            this.testPhone.RemoveCall(this.testPhone.LongestCall);
             //изчислява отново цената
             Console.WriteLine("Price of calls except the longest at {0:c}/min: {1:c}", priceMinute, this.testPhone.CalcCallsPrice(priceMinute));
             //изчиства списъка с разговори
