@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MobilePhones;
 
-namespace BatteryTest
+namespace MobilePhonesTest
 {
     [TestClass]
     public class BatteryTest
