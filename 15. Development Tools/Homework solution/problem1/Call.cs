@@ -1,10 +1,12 @@
 ﻿namespace MobilePhones
 {
     using System;
+    using log4net;
 
     public class Call
     {
         private DateTime callDateTime;
+        private static readonly ILog log = LogManager.GetLogger(typeof(Call));
 
         public Call() : this(DateTime.MinValue, string.Empty, 0)
         { 
@@ -15,6 +17,7 @@
             this.callDateTime = callDateTime;
             this.PhoneNumber = number;
             this.CallDuration = callDuration;
+            log4net.Config.XmlConfigurator.Configure();
         }
 
         public Call(string callDate, string callTime, string number, ushort callDuration)
@@ -40,6 +43,7 @@
                 }
                 catch (Exception ex)
                 {
+                    log.Error("Incorect format for date provided");
                     throw new FormatException("Date is not in correct format");
                 }
             }
@@ -61,10 +65,11 @@
                 }
                 catch (Exception ex)
                 {
+                    log.Error("Incorect format for time provided");
                     throw new FormatException("Time format is not correct");
                 }
 
-                this.callDateTime = this.callDateTime.Add(time);
+                this.callDateTime = callDateTime.Add(time);
             }
         }
 

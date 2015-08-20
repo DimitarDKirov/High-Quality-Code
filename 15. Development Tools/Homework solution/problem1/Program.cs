@@ -1,11 +1,16 @@
 ﻿namespace MobilePhones
 {
     using System;
+    using log4net;
+    using log4net.Config;
 
     public class GSMbegin
     {
+        private static readonly ILog Log = LogManager.GetLogger(typeof(GSM));
+
         public static void Main()
         {
+
             Battery bl5c = new Battery("BL-5C", 300, 33, BatteryType.NiMH);
             GSM nokia1100 = new GSM("1100", "NOKIA", 100, "Ivan Ivanov", bl5c, 1.3f);
             Console.WriteLine(nokia1100);
@@ -25,6 +30,8 @@
             lgA390.AddCall(cal3);
             Console.WriteLine(lgA390);
             Console.WriteLine(lgA390.CalcCallsPrice(0.37f));
+
+            //new GSM("df ", " ");
         }
     }
 }

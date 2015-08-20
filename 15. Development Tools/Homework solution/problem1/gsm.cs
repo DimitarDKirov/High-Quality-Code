@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using log4net;
 
     public class GSM
     {
@@ -10,6 +11,7 @@
         private float price;
         private float displaySize;
         private List<Call> callHistory;
+        private static readonly ILog Log = LogManager.GetLogger(typeof(GSM));
 
         public GSM(string model, string manufacturer, float price, string owner, Battery battery, float displaySize)
         {
@@ -20,6 +22,7 @@
             this.BatteryData = battery;
             this.DisplaySize = displaySize;
             this.callHistory = new List<Call>();
+            log4net.Config.XmlConfigurator.Configure();
         }
 
         public GSM(string model, string manufacturer)
@@ -38,6 +41,7 @@
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
+                    Log.Error("Null or whispace value for GSM model");
                     throw new ArgumentNullException("Model must be specified");
                 }
 
@@ -56,6 +60,7 @@
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
+                    Log.Error("Null or whispace value for GSM manufacturer");
                     throw new ArgumentNullException("Manufacturer must be specified");
                 }
 
@@ -74,6 +79,7 @@
             {
                 if (value < 0.0)
                 {
+                    Log.Error("Negative value for GSM price");
                     throw new ArgumentOutOfRangeException("Price must be positive number or 0");
                 }
 
@@ -92,6 +98,7 @@
             {
                 if (value < 0)
                 {
+                    Log.Error("Negative value for GSM display size");
                     throw new ArgumentOutOfRangeException("Display size can not be negative number");
                 }
 
@@ -112,10 +119,12 @@
         public void AddCall(Call call)
         {
             this.callHistory.Add(call);
+            Log.Info("new call " + call.ToString());
         }
 
         public void ClearCallHistory()
         {
+            Log.Info("Call history cleared");
             this.callHistory.Clear();
         }
 

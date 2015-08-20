@@ -1,11 +1,13 @@
 ﻿namespace MobilePhones
 {
     using System;
+    using log4net;
 
     public class Battery
     {
         private int hoursIdle;
         private int capacity;
+        private static readonly ILog log = LogManager.GetLogger(typeof(Battery));
 
         public Battery() : this(null, 0, 0, 0)
         { 
@@ -17,6 +19,7 @@
             this.HoursIdle = hoursIdleTime;
             this.Capacity = capacity;
             this.TypeOfBattery = batType;
+            log4net.Config.XmlConfigurator.Configure();
         }
 
         public string Model { get; set; }
@@ -32,6 +35,7 @@
             {
                 if (value < 0)
                 {
+                    log.Error("Negative value for battery hours idle provided");
                     throw new ArgumentOutOfRangeException("Hours idle time must be positive number");
                 }
 
@@ -50,6 +54,7 @@
             {
                 if (value < 0)
                 {
+                    log.Error("Negative value for battery capacity provided");
                     throw new ArgumentOutOfRangeException("Capacity must be positive number");
                 }
 
