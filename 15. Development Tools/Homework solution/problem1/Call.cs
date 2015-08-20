@@ -1,15 +1,14 @@
-﻿using System;
-
-
-namespace MobilePhones
+﻿namespace MobilePhones
 {
+    using System;
+
     public class Call
     {
         private DateTime callDateTime;
 
-        public Call()
-            : this(DateTime.MinValue, string.Empty, 0)
-        { }
+        public Call() : this(DateTime.MinValue, string.Empty, 0)
+        { 
+        }
 
         public Call(DateTime callDateTime, string number, ushort callDuration)
         {
@@ -30,13 +29,14 @@ namespace MobilePhones
         {
             get
             {
-                return callDateTime.ToShortDateString();
+                return this.callDateTime.ToShortDateString();
             }
+
             set
             {
                 try
                 {
-                    callDateTime = DateTime.Parse(value, System.Globalization.DateTimeFormatInfo.InvariantInfo);
+                    this.callDateTime = DateTime.Parse(value, System.Globalization.DateTimeFormatInfo.InvariantInfo);
                 }
                 catch (Exception ex)
                 {
@@ -49,8 +49,9 @@ namespace MobilePhones
         {
             get
             {
-                return callDateTime.ToLongTimeString();
+                return this.callDateTime.ToLongTimeString();
             }
+
             set
             {
                 TimeSpan time;
@@ -58,13 +59,12 @@ namespace MobilePhones
                 {
                     time = TimeSpan.Parse(value);
                 }
-
                 catch (Exception ex)
                 {
                     throw new FormatException("Time format is not correct");
                 }
 
-                callDateTime = callDateTime.Add(time);
+                this.callDateTime = this.callDateTime.Add(time);
             }
         }
 

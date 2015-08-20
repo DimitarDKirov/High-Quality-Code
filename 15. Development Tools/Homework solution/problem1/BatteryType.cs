@@ -1,9 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MobilePhones
+﻿namespace MobilePhones
 {
+    using System;
+
     public enum BatteryType
-    { LiIon, NiMH, NiCd, LiPol }
+    {
+        LiIon,
+        NiMH,
+        NiCd,
+        LiPol
+    }
 }

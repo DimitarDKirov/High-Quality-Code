@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MobilePhones
+﻿namespace MobilePhones
 {
+    using System;
+    using System.Collections.Generic;
+
     public class GSM
     {
         private string model;
@@ -52,6 +51,7 @@ namespace MobilePhones
             {
                 return this.manufacturer;
             }
+
             set
             {
                 if (string.IsNullOrWhiteSpace(value))
@@ -95,7 +95,7 @@ namespace MobilePhones
                     throw new ArgumentOutOfRangeException("Display size can not be negative number");
                 }
 
-                displaySize = value;
+                this.displaySize = value;
             }
         }
 
@@ -105,7 +105,7 @@ namespace MobilePhones
 
         public override string ToString()
         {
-            string phoneData = string.Format("{1} {0} {2}\" Price: {3:c}\tOwner: {4}\n{5}\n", this.model, this.manufacturer, this.DisplaySize, this.price, this.PhoneOwner, BatteryData.ToString());
+            string phoneData = string.Format("{1} {0} {2}\" Price: {3:c}\tOwner: {4}\n{5}\n", this.model, this.manufacturer, this.DisplaySize, this.price, this.PhoneOwner, this.BatteryData.ToString());
             return phoneData;
         }
 

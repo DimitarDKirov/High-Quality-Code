@@ -1,13 +1,15 @@
-﻿using System;
-
-namespace MobilePhones
+﻿namespace MobilePhones
 {
+    using System;
+
     public class Battery
     {
         private int hoursIdle;
         private int capacity;
 
-        public Battery() : this(null, 0, 0, 0) { }
+        public Battery() : this(null, 0, 0, 0)
+        { 
+        }
 
         public Battery(string model, int hoursIdleTime, int capacity, BatteryType batType)
         {
@@ -25,6 +27,7 @@ namespace MobilePhones
             {
                 return this.hoursIdle;
             }
+
             set
             {
                 if (value < 0)
@@ -42,6 +45,7 @@ namespace MobilePhones
             {
                 return this.capacity;
             }
+
             set
             {
                 if (value < 0)
@@ -57,7 +61,7 @@ namespace MobilePhones
 
         public override string ToString()
         {
-            return String.Format("Battery {0} {1} {2}mAh {3}h", this.Model, this.TypeOfBattery,this.Capacity,this.HoursIdle);
+            return string.Format("Battery {0} {1} {2}mAh {3}h", this.Model, this.TypeOfBattery, this.Capacity, this.HoursIdle);
         }
     }
 }

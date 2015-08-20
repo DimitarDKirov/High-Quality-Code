@@ -1,9 +1,9 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MobilePhones;
-
-namespace MobilePhonesTest
+﻿namespace MobilePhonesTest
 {
+    using System;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using MobilePhones;
+
     [TestClass]
     public class BatteryTest
     {
