@@ -47,8 +47,6 @@
     <Compile Include="BatteryType.cs" />
     <Compile Include="Call.cs" />
     <Compile Include="GSM.cs" />
-    <Compile Include="GSMCallHistoryTest.cs" />
-    <Compile Include="GSMTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

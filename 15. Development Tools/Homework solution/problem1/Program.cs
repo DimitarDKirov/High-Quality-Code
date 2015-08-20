@@ -38,16 +38,7 @@ namespace MobilePhones
 
             //използване на GSMTest - problem7
 
-            GSMTest gsmTestCase1 = new GSMTest();
-            Console.WriteLine("GSM test");
-            Console.WriteLine(gsmTestCase1.GSMinfo());
-
-            //изпозлване на GSMCallHistoryTest - problem 12
-            GSMCallHistoryTest testCalls = new GSMCallHistoryTest();
-            testCalls.TestCallHistory();
-
-            Call[] calls = { new Call() };
-            Console.WriteLine(String.IsNullOrWhiteSpace(""));
+           
             }
 
 
