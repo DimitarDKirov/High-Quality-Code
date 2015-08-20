@@ -14,7 +14,7 @@ class CallsGenerator
         Random rand=new Random();#>
 		private DateTime refDate = new DateTime(2000, 1, 1);
 		private Call[] calls=new Call[<#=NumberOfCalls#>];
-		private CallsGenerator(){
+		public CallsGenerator(){
         <#for (int i = 0; i < NumberOfCalls; i++)
             {
                 TimeSpan timeOffset = new TimeSpan(1000-rand.Next(2000), rand.Next(23), rand.Next(59),rand.Next(59));

@@ -19,7 +19,7 @@ namespace MobilePhonesTest
         [ExpectedException(typeof(ArgumentNullException))]
         public void GSMCreate_ShouldThrowIfModelIsWhiteSpace()
         {
-            GSM phone = new GSM("  ", "Nokia");
+            GSM phone = new GSM("  ", "LG");
         }
 
         [TestMethod]
@@ -40,7 +40,7 @@ namespace MobilePhonesTest
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void GSM_ShouldThrowIfPriceIsNegative()
         {
-            GSM phone = new GSM("Nokia", "1100", -1, null, null, 0);
+            GSM phone = new GSM("Samsung", "Galaxy 4", -1, null, null, 0);
         }
 
         [TestMethod]
@@ -50,6 +50,36 @@ namespace MobilePhonesTest
             GSM phone = new GSM("Apple", "iPhone6");
             phone.DisplaySize = -1;
         }
-    
+
+        [TestMethod]
+        public void GSMCalls_ShouldStoreZeroCallsAndCalculatePrice0()
+        {
+            Battery battery=new Battery("BL-5C", 200, 1700, BatteryType.LiIon);
+            GSM phone = new GSM("Samsung", "Galaxy 4", 550.34f, "Dimitar", battery, 5.0f);
+            phone.AddCall(new Call());
+            var result = phone.CalcCallsPrice(1.0f);
+            float expected = 0.0f;
+            Assert.AreEqual(expected, result, "Zero call should have price 0");
+        }
+
+        [TestMethod]
+        public void MyTestMethod()
+        {
+            Battery battery = new Battery("BL-5C", 200, 1700, BatteryType.LiIon);
+            GSM phone = new GSM("Nokia", "1100", 100f, "Dimitar", battery, 1.5f);
+            float callPrice = 2f;
+            float expected = 0f;
+            CallsGenerator calls=new CallsGenerator();
+            for (int i = 0; i < calls.Calls.Length ; i++)
+            {
+                phone.AddCall(calls.Calls[i]);
+                expected += calls.Calls[i].CallDuration / 60f;
+            }
+
+            expected *= callPrice;
+            float result = phone.CalcCallsPrice(callPrice);
+            Assert.AreEqual(expected, result, "All calls price should be correct "+expected);
+        }
+   
     }
 }

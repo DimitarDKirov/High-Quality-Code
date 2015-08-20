@@ -23,7 +23,10 @@ namespace MobilePhones
             this.callHistory = new List<Call>();
         }
 
-        public GSM(string model, string manufacturer) : this(model, manufacturer, 0.0f, null, null, 0.0f) { }
+        public GSM(string model, string manufacturer)
+            : this(model, manufacturer, 0.0f, null, null, 0.0f)
+        {
+        }
 
         public string Model
         {
@@ -31,11 +34,12 @@ namespace MobilePhones
             {
                 return this.model;
             }
+
             set
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
-                    throw new ArgumentNullException("Model must be specified"); 
+                    throw new ArgumentNullException("Model must be specified");
                 }
 
                 this.model = value;
@@ -65,6 +69,7 @@ namespace MobilePhones
             {
                 return this.price;
             }
+
             set
             {
                 if (value < 0.0)
@@ -76,14 +81,13 @@ namespace MobilePhones
             }
         }
 
-
-
         public float DisplaySize
         {
             get
             {
                 return this.displaySize;
             }
+
             set
             {
                 if (value < 0)
@@ -94,7 +98,6 @@ namespace MobilePhones
                 displaySize = value;
             }
         }
-
 
         public string PhoneOwner { get; set; }
 
