@@ -4,7 +4,12 @@ using System.Text;
 
 namespace MobilePhones
     {
-       
+
+        using System;
+        using MobilePhones;
+
+        
+    
     public class GSMbegin
         {
         static void Main()
@@ -41,7 +46,11 @@ namespace MobilePhones
             GSMCallHistoryTest testCalls = new GSMCallHistoryTest();
             testCalls.TestCallHistory();
 
+            Call[] calls = { new Call() };
+            Console.WriteLine(String.IsNullOrWhiteSpace(""));
             }
+
+
         }
     }
         

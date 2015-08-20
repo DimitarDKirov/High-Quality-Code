@@ -26,10 +26,11 @@ namespace MobilePhones
             {
             for (int i = 0; i < rand.Next(MinCalls, MaxCalls); i++)
                 {//случайно време на разговора - добавя се случаен брой дни, часове, минути, секунди към днешна дата
-                TimeSpan timeOffset = new TimeSpan(rand.Next(100), rand.Next(23), rand.Next(59));
+                TimeSpan timeOffset = new TimeSpan(1000-rand.Next(2000), rand.Next(23), rand.Next(59),rand.Next(59));
                 int randomNum = rand.Next(11111111, 99999999);      //случаен номер
                 string randomNumber = string.Concat("0", randomNum);
-                Call tempCall = new Call(DateTime.Now.Add(timeOffset), randomNumber, (ushort)rand.Next(3600));
+                DateTime refDate = new DateTime(2000, 1, 1);
+                Call tempCall = new Call(refDate.Add(timeOffset), randomNumber, (ushort)rand.Next(3600));
                 this.testPhone.AddCall(tempCall);
                 Console.WriteLine(tempCall.ToString());  //показва информация на новия случаен разовор
                 }
