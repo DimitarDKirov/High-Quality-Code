@@ -31,7 +31,10 @@
             Console.WriteLine(lgA390);
             Console.WriteLine(lgA390.CalcCallsPrice(0.37f));
 
-            //new GSM("df ", " ");
+            //new GSM(" ", " ");
+            //call1.CallTime = null;
+            //bl5c.Capacity = -1;
+            //iPhone.DisplaySize = -1;            
         }
     }
 }
