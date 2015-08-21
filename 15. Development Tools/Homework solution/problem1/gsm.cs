@@ -61,7 +61,7 @@
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
-                    Log.Error("Null or whispace value for GSM model");
+                    Log.Error("Null or whitespace value for GSM model provided");
                     throw new ArgumentNullException("Model must be specified");
                 }
 
